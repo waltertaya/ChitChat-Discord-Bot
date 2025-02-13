@@ -21,6 +21,7 @@ intents.message_content = True  # Enable the message content intent
 client = discord.Client(intents=intents)
 # client = discord.Client(intents=discord.Intents.default())
 
+
 @client.event
 async def on_ready():
     print(f'Logged in as {client.user}')
@@ -55,8 +56,8 @@ async def on_message(message):
                 try:
                     answer = response.json()["choices"][0]["message"]["content"]
 
-                    print(f"Question: {query}")
-                    print(f"Answer: {answer}")
+                    # print(f"Question: {query}")
+                    # print(f"Answer: {answer}")
 
                     await message.channel.send(f"<@{message.author.id}> {answer}")
                 except (KeyError, IndexError):
